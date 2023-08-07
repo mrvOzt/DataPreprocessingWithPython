@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Entry</title>
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #336699;
+        }
+        
+        form {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #888888;
+        }
+        
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #333333;
+        }
+        
+        input[type="number"], input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #336699;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #2d5773;
+        }
+        
+        span.error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Please enter the data</h1>
+    <form action="/predict" method="post">
+        <label for="air_temp">Air Temperature [K]:</label>
+        <input type="number" name="air_temp" step="any" pattern="\d+(\.\d+)?" required><br>
+
+        <label for="process_temp">Process Temperature [K]:</label>
+        <input type="number" name="process_temp" step="any" pattern="\d+(\.\d+)?" step="any" pattern="\d+(\.\d+)?" required><br>
+
+        <label for="rotational_speed">Rotational Speed [rpm]:</label>
+        <input type="number" name="rotational_speed" step="any" pattern="\d+(\.\d+)?" required><br>
+
+        <label for="torque">Torque [Nm]:</label>
+        <input type="number" name="torque" step="any" pattern="\d+(\.\d+)?" required><br>
+
+        <label for="encoded_type">Encoded Type:</label>
+        <select name="encoded_type" required>
+            <option value="" disabled selected>Seçiniz</option>
+            <option value="0">H</option>
+            <option value="1">L</option>
+            <option value="2">M</option>
+        </select><br>
+
+        <label for="tool_wear">Tool Wear [min]:</label>
+        <input type="number" name="tool_wear" step="1" required><br>
+
+        <input type="submit" value="Predict">
+        
+    </form>
+</body>
+</html>
